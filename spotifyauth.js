@@ -1,4 +1,4 @@
-function startup(e) {
+function startup() {
   var code = getParameterByName('code');
   var error = getParameterByName('error');
   
