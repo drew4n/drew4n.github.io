@@ -2,7 +2,7 @@ function startup() {
   var code = getParameterByName('code');
   var error = getParameterByName('error');
   
-  post('https://accounts.spotify.com/api/token', {grant_type: 'authorization_code', code: code, redirect_uri: 'https%3A%2F%2Fhttpbin.org%2Fget', client_id: 'fcbecf72a1ff424bae78ff2e6c779e63', client_secret: 'e6fe7b3c512d4ac9985a66df92641053'})
+  post('https://accounts.spotify.com/api/token', {grant_type: 'authorization_code', code: code, redirect_uri: 'https%3A%2F%2Fdrew4n.github.io%2Fspotifyauthmid.html', client_id: 'fcbecf72a1ff424bae78ff2e6c779e63', client_secret: 'e6fe7b3c512d4ac9985a66df92641053'})
 }
 
 function post(path, params, method) {
