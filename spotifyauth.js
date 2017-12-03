@@ -1,10 +1,13 @@
 function startup() {
   var code = getParameterByName('code');
   var error = getParameterByName('error');
+
+  var text = "grant_type=authorization_code&code=AUTHCODE&redirect_uri=https%3A%2F%2Fdrew4n.github.io%2Fspotifyauthmid.html";
+  var postquery = text.replace("AUTHCODE", code)
   
   xhttp.open("POST", "https://accounts.spotify.com/api/token", true);
   xhttp.setRequestHeader("Authorization", "Basic ZmNiZWNmNzJhMWZmNDI0YmFlNzhmZjJlNmM3NzllNjM6ZTZmZTdiM2M1MTJkNGFjOTk4NWE2NmRmOTI2NDEwNTM=");
-  xhttp.send("grant_type=authorization_code&code=" + code + "&redirect_uri=https%3A%2F%2Fdrew4n.github.io%2Fspotifyauthmid.html");
+  xhttp.send(postquery);
 
 
   //post('https://accounts.spotify.com/api/token', {grant_type: 'authorization_code', code: code, redirect_uri: 'https%3A%2F%2Fdrew4n.github.io%2Fspotifyauthmid.html', client_id: 'fcbecf72a1ff424bae78ff2e6c779e63', client_secret: 'e6fe7b3c512d4ac9985a66df92641053'})
