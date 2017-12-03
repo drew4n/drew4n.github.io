@@ -4,22 +4,23 @@ function startup() {
 
   var posturl = new RegExp("https://accounts.spotify.com/api/token?grant_type=authorization_code&code=" + code + "&redirect_uri=https%3A%2F%2Fdrew4n.github.io%2Fspotifyauthmid.html");
 
-  var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": posturl,
-    "method": "POST",
-    "headers": {
-      "authorization": "Basic ZmNiZWNmNzJhMWZmNDI0YmFlNzhmZjJlNmM3NzllNjM6ZTZmZTdiM2M1MTJkNGFjOTk4NWE2NmRmOTI2NDEwNTM=",
-      "content-type": "application/x-www-form-urlencoded"
-    }
-  }
+  var data = null;
 
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-    var jsonResp = JSON.stringify(response);
-    document.getElementById("demo").innerHTML = jsonResp;
+  var xhr = new XMLHttpRequest();
+  xhr.withCredentials = true;
+
+  xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === 4) {
+      console.log(this.responseText);
+      var jsonResp = JSON.stringify(response);
+      document.getElementById("demo").innerHTML = jsonResp;
+    }
   });
+
+  xhr.open("POST", posturl);
+  xhr.setRequestHeader("authorization", "Basic ZmNiZWNmNzJhMWZmNDI0YmFlNzhmZjJlNmM3NzllNjM6ZTZmZTdiM2M1MTJkNGFjOTk4NWE2NmRmOTI2NDEwNTM=");
+  xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+  xhr.send(data);
 }
 
 function getParameterByName(name, url) {
