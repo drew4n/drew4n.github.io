@@ -17,7 +17,8 @@ function startup() {
 
   $.ajax(settings).done(function (response) {
     console.log(response);
-    document.getElementById("demo").innerHTML = response;
+    var jsonResp = JSON.stringify(response);
+    document.getElementById("demo").innerHTML = jsonResp;
   });
 }
 
