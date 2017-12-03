@@ -2,6 +2,14 @@ function startup() {
   var code = getParameterByName('code');
   var error = getParameterByName('error');
 
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML =
+      this.responseText;
+    }
+  };
+
   var text = "grant_type=authorization_code&code=AUTHCODE&redirect_uri=https%3A%2F%2Fdrew4n.github.io%2Fspotifyauthmid.html";
   var postquery = text.replace("AUTHCODE", code);
   
