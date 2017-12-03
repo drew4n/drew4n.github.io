@@ -12,7 +12,7 @@ function startup() {
   xhr.addEventListener("readystatechange", function () {
     if (this.readyState === 4) {
       console.log(this.responseText);
-      var jsonResp = JSON.stringify(response);
+      var jsonResp = JSON.stringify(this.responseText);
       document.getElementById("demo").innerHTML = jsonResp;
     }
   });
